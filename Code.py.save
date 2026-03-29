@@ -1,0 +1,52 @@
+def convert_mass(value, from_unit, to_unit):
+# Conversion factors to kilograms (base unit)
+to_kg = {
+'тонна': 1000.0,
+'центнер': 100.0,
+'килограмм': 1.0,
+'грамм': 0.001,
+'милиграмм': 0.000001
+}
+
+# Convert to kilograms first, then to target unit
+    kg_value = value * to_kg[from_unit]
+    result = kg_value / to_kg[to_unit]
+    
+    return result
+
+def display_units():
+    """Display available units for th   print("\nAvailable mass units:")
+    print("  - ton (metric ton)")
+    print("  - quintal (100 kg)")
+    print("  - kg (kilogram)")
+    print("  - gram")
+    print("  - mg (milligram)")
+
+def get_user_input():
+    """Get conversion parameters from user."""
+    print("=== Mass Converter ===")
+    display_units()
+    
+    value = float(input("\nEnter the value to convert: "))
+    from_unit = input("Enter source unit: ").strip().lower()
+    to_unit = input("Enter target unit: ").strip().lower()
+    
+    return value, from_unit, to_unit
+
+def main():
+    """Main program loop."""
+    try:
+        value, from_unit, to_unit = get_user_input()
+        result = convert_mass(value, from_unit, to_unit)
+        
+        print(f"\nResult: {value} {from_unit} = {result} {to_unit}")
+        
+    except KeyError:
+        print("\nError: Invalid unit! Please use units from the list.")
+    except ValueError:
+        print("\nError: Invalid number! Please enter a numeric value.")
+    except ZeroDivisionError:
+        print("\nError: Cannot convert to/from unknown unit.")
+
+if __name__ == "__main__":
+    main()
