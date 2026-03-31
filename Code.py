@@ -3,6 +3,7 @@
 Поддерживает: тонны, центнеры, килограммы, граммы, миллиграммы.
 """
 
+
 def convert_mass(value, from_unit, to_unit):
     """
     Конвертирует массу из одной единицы в другую.
@@ -30,6 +31,7 @@ def convert_mass(value, from_unit, to_unit):
 
     return result
 
+
 def display_units():
     """Показывает доступные единицы измерения пользователю."""
     print("\nДоступные единицы массы:")
@@ -38,6 +40,7 @@ def display_units():
     print("  - kg (килограмм)")
     print("  - gram (грамм)")
     print("  - mg (миллиграмм)")
+
 
 def get_user_input():
     """Получает от пользователя параметры конвертации."""
@@ -49,6 +52,7 @@ def get_user_input():
     to_unit = input("Введите выходную единицу: ").strip().lower()
 
     return value, from_unit, to_unit
+
 
 def main():
     """Главный цикл программы."""
@@ -64,6 +68,7 @@ def main():
         print("\nОшибка: Неверное число!")
     except ZeroDivisionError:
         print("\nОшибка: Невозможно конвертировать!")
+
 
 if __name__ == "__main__":
     main()
