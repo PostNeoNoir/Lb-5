@@ -15,7 +15,7 @@ def convert_mass(value, from_unit, to_unit):
     Возвращает:
         float - сконвертированное значение
     """
-    # Коэффициенты перевода в килограммы (базовая единица)
+    # Коэффициенты перевода в килограммы
     to_kg = {
         'ton': 1000.0,      # тонна
         'quintal': 100.0,   # центнер
@@ -45,8 +45,8 @@ def get_user_input():
     display_units()
 
     value = float(input("\nВведите значение для конвертации: "))
-    from_unit = input("Введите входную единицу: измерения ").strip().lower()
-    to_unit = input("Введите выходную единицу измерения: ").strip().lower()
+    from_unit = input("Введите входную единицу: ").strip().lower()
+    to_unit = input("Введите выходную единицу: ").strip().lower()
 
     return value, from_unit, to_unit
 
@@ -63,7 +63,7 @@ def main():
     except ValueError:
         print("\nОшибка: Неверное число!")
     except ZeroDivisionError:
-        print("\nОшибка: Невозможно конвертировать неизвестную единицу измерения.")
+        print("\nОшибка: Невозможно конвертировать!")
 
 if __name__ == "__main__":
     main()
